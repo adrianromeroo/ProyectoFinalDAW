@@ -1,0 +1,229 @@
+	<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Inicio</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+	<link rel="stylesheet" type="text/css" href="../static/CSS/Estilos.css" th:href="@{/CSS/Estilos.css}">
+	<script type="text/javascript">
+	</script>
+</head>
+<body>
+    <header class="bg-dark text-center text-white pt-4">
+        <h1><b>Temple GYM</b></h1>
+        <h4> Tu gimnasio online con rutinas de ejercicios en casa, planes de entrenamiento y dietas </h4>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light text-white mt-15">
+          <p></p>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" th:href="@{/}" href="index.html">Inicio <span class="sr-only">(current)</span></a>
+              </li>
+              
+              <li class="nav-item">
+                <a class="nav-link" href="./admin/list-citas.html" th:href="@{/admin/cita/citas}">Planes</a>
+              </li>
+              
+              <li class="nav-item">
+                <a class="nav-link" href="list-users.html" th:href="@{/list-users}">Gestion Usuarios</a>
+              </li>
+              
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Dietas
+                </a>
+                <div id="desplegable" class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item bg-dark" href="../templates/admin/list-clientes.html" th:href="@{/admin/cliente/clientes}">Lista de Dietas</a>
+                  <a class="dropdown-item bg-dark" href="../templates/admin/form-clientes.html" th:href="@{/admin/cliente/nuevo}">Añadir Dietas</a>
+                </div>
+              </li>
+              
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Entrenamientos
+                </a>
+                <div id="desplegable" class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item bg-dark" href="../templates/admin/list-clientes.html" th:href="@{/admin/cliente/clientes}">Lista de Entrenamientos</a>
+                  <a class="dropdown-item bg-dark" href="../templates/admin/form-clientes.html" th:href="@{/admin/cliente/nuevo}">Añadir Entrenamientos</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>
+    </header>
+    
+    
+    
+    <main>
+    <!-- INFORMACION DE BIENVENIDA -->
+        <div class="containter">
+            <div class="row">
+                <div class="col-12 col-lg-2"></div>
+                <div class="col-12 col-lg-4">
+                    <p>BIENVENIDOS A LA WEB DEL GIMNASIO ONLINE TEMPLE GYM</p>
+                    <p>Si te gustaría conseguir de una vez por todas un cambio fisico, ve directamente a nuestros planes
+                        de entrenamiento y echales un vistazo.
+                    </p>
+                    <p>Si lo que buscas es motivación, no dudes en visitar nuestra galería en la seccion de cambios fisicos.</p>
+                    <p>No te olvides tampoco de ver nuestros consejos sobre los cuidados alimenticios.</p>
+                </div>
+                <div id="fondo1" class="col-12 col-lg-4"><img th:src="@{../IMG/PESAS.png}" src="../static/IMG/PESAS.png"></div>
+                <div class="col-12 col-lg-2"></div>
+            </div>
+        </div>
+        <br>
+        
+        <!-- CAMBIOS FISICOS FOTOS -->
+        <h2> Cambios Fisicos de Nuestros Fuertacos </h2>
+        <div class="container">
+          <div class="row">
+            <div class="col-12 col-lg-2">
+              <img th:src="@{../IMG/CambioFisico1.jpg}" src="../static/IMG/CambioFisico1.jpg">
+            </div>
+            <div class="col-12 col-lg-2">
+              <img th:src="@{../IMG/CambioFisico2.png}" src="../static/IMG/CambioFisico2.png">
+            </div>
+            <div class="col-12 col-lg-2">
+              <img th:src="@{../IMG/CambioFisico3.png}" src="../static/IMG/CambioFisico3.png">
+            </div>
+            <div class="col-12 col-lg-2">
+              <img th:src="@{../IMG/CambioFisico4.png}" src="../static/IMG/CambioFisico4.">
+            </div>
+            <div class="col-12 col-lg-2">
+              <img th:src="@{../IMG/CambioFisico11.jpg}" src="../static/IMG/CambioFisico11.jpg">
+            </div>
+            <div class="col-12 col-lg-2">
+              <img th:src="@{../IMG/CambioFisico12.jpg}" src="../static/IMG/CambioFisico12.jpg">
+            </div> 
+          </div>
+          <div class="row">
+            <div class="col-12 col-lg-2">
+              <img th:src="@{../IMG/CambioFisico5.png}" src="../static/IMG/CambioFisico1.png">
+            </div>
+            <div class="col-12 col-lg-2">
+              <img th:src="@{../IMG/CambioFisico6.png}" src="../static/IMG/CambioFisico6.png">
+            </div>
+            <div class="col-12 col-lg-2">
+              <img th:src="@{../IMG/CambioFisico7.png}" src="../static/IMG/CambioFisico7.png">
+            </div>
+            <div class="col-12 col-lg-2">
+              <img th:src="@{../IMG/CambioFisico8.png}" src="../static/IMG/CambioFisico8.png">
+            </div>
+            <div class="col-12 col-lg-2">
+              <img th:src="@{../IMG/CambioFisico9.jpg}" src="../static/IMG/CambioFisico9.jpg">
+            </div>
+            <div class="col-12 col-lg-2">
+              <img th:src="@{../IMG/CambioFisico10.jpg}" src="../static/IMG/CambioFisico10.jpg">
+            </div> 
+          </div>
+        </div>
+    </main>
+    <aside>
+      
+    </aside>
+    
+    
+    
+    <!-- FOOTER INFORMATIVO -->
+    <footer class="bg-dark text-center text-white">
+      <div class="container p-4">
+          
+        <section class="">
+          <div class="row">
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+              <h5 class="text-uppercase">Contacto</h5>
+    
+              <ul class="list-unstyled mb-0">
+                <li>
+                  <a href="#!" class="text-white"></a>
+                </li>
+                <li>
+                  <a href="#!" class="text-white">955 777 666</a>
+                </li>
+                <li>
+                  <a href="#!" class="text-white">600 154 980</a>
+                </li>
+                <li>
+                  <a href="#!" class="text-white">templegym@gmail.com</a>
+                </li>
+              </ul>
+            </div>
+    
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+              <h5 class="text-uppercase">Apartados Web</h5>
+    
+              <ul class="list-unstyled mb-0">
+                <li>
+                  <a href="#!" class="text-white">Inicio</a>
+                </li>
+                <li>
+                  <a href="#!" class="text-white">Planes De Entrenamiento</a>
+                </li>
+                <li>
+                  <a href="#!" class="text-white">Fuertacos</a>
+                </li>
+                <li>
+                  <a href="#!" class="text-white">COVID 19</a>
+                </li>
+              </ul>
+            </div>
+    
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+              <h5 class="text-uppercase">Apartados Web</h5>
+    
+              <ul class="list-unstyled mb-0">
+                <li>
+                  <a href="#!" class="text-white">Noticias</a>
+                </li>
+                <li>
+                  <a href="#!" class="text-white">Libro de visitas</a>
+                </li>
+                <li>
+                  <a href="#!" class="text-white">Contacto</a>
+                </li>
+                <li>
+                  <a href="#!" class="text-white">Merchandising</a>
+                </li>
+              </ul>
+            </div>
+    
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+              <h5 class="text-uppercase">Síguenos en</h5>
+    
+              <ul class="list-unstyled mb-0">
+                <li>
+                  <a href="#!" class="text-white">Instagram</a>
+                </li>
+                <li>
+                  <a href="#!" class="text-white">Facebook</a>
+                </li>
+                <li>
+                  <a href="#!" class="text-white">Twitter</a>
+                </li>
+                <li>
+                  <a href="#!" class="text-white">Linkedin</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </div>
+    
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2021 Copyright:
+        <a class="text-white">TempleGYM.com</a>
+      </div>
+    </footer>
+      
+</body>
+</html>
