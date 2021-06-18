@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Form Diet</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="../CSS/Estilos.css">
+</head>
+<body>
+
+	<header class="bg-dark text-center text-white pt-4">
+        <h1><b>Temple GYM</b></h1>
+        <h4> Tu gimnasio online con rutinas de ejercicios en casa, planes de entrenamiento y dietas </h4>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light text-white mt-15">
+          <p></p>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" th:href="@{/}" href="index.html">Inicio <span class="sr-only">(current)</span></a>
+              </li>
+              
+              <li class="nav-item">
+                <a class="nav-link" href="form-plans.html" th:href="@{/list-trainingplan}">Planes</a>
+              </li>
+              
+              <li class="nav-item">
+                <a class="nav-link" href="list-users.html" th:href="@{/list}">Gestion Usuarios</a>
+              </li>
+              
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Dietas
+                </a>
+                <div id="desplegable" class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item bg-dark" href="list_diets.html" th:href="@{/list-diets}">Lista de Dietas</a>
+                </div>
+              </li>
+              
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Rutinas
+                </a>
+                <div id="desplegable" class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item bg-dark" href="list_routines" th:href="@{/list-routines}">Lista de Rutinas</a>
+                </div>
+              </li>
+              
+              <li class="nav-item" sec:authorize="isAuthenticated()">
+				<a class="nav-link" th:href="@{/logout}">Logout</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+    </header>
+
+	<div class="container mt-4 mb-4">
+		<div class="col-sm-6">
+			<form th:action="@{/save-diet}" th:object=${diet} method="POST">
+				<div class="card">
+					<div class="card-header">
+					<h3>Diets</h3>
+					</div>
+					<div class="card-body">
+						<div class="form-group d-none">
+							<label>ID</label>
+							<input th:field="*{id}" type="text" class="form-control"/>
+						</div>
+						<div class="form-group">
+							<label>NAME</label>
+							<input th:field="*{name}" type="text" class="form-control" id="name" required/>
+						</div>
+						<div class="form-group">
+							<label>PROTEINS</label>
+							<input th:field="*{proteins}" type="number" class="form-control" id="proteins" required/>
+						</div>
+						<div class="form-group">
+							<label>CARBOHYDRATES</label>
+							<input th:field="*{carbohydrates}" type="number" class="form-control" id="carbohydrates" required/>
+						</div>
+						<div class="form-group">
+							<label>FATS</label>
+							<input th:field="*{fats}" type="number" class="form-control" id="fats" required/>
+						</div>
+						<div class="form-group">
+							<label>DESCRIPTION</label>
+							<input th:field="*{description}" type="text" class="form-control" id="description" required/>
+						</div>
+						<div class="form-group">
+							<label>ALLERGENS</label>
+							<input th:field="*{allergens}" type="text" class="form-control" id="allergens" required/>
+						</div>
+					</div>
+					<div class="cad-footer">
+					<input type="submit" value="Save" class="btn btn-success" id="send-diet">
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	
+	<!-- FOOTER INFORMATIVO -->
+    <footer class="bg-dark text-center text-white">
+      <div class="container p-4">
+          
+        <section class="">
+          <div class="row">
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+              <h5 class="text-uppercase">Contacto</h5>
+    
+              <ul class="list-unstyled mb-0">
+                <li>
+                  <a href="#!" class="text-white"></a>
+                </li>
+                <li>
+                  <a href="#!" class="text-white">955 777 666</a>
+                </li>
+                <li>
+                  <a href="#!" class="text-white">600 154 980</a>
+                </li>
+                <li>
+                  <a href="#!" class="text-white">templegym@gmail.com</a>
+                </li>
+              </ul>
+            </div>
+    
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+              <h5 class="text-uppercase">Apartados Web</h5>
+    
+              <ul class="list-unstyled mb-0">
+                <li>
+                  <a href="#!" class="text-white">Inicio</a>
+                </li>
+                <li>
+                  <a href="#!" class="text-white">Planes De Entrenamiento</a>
+                </li>
+                <li>
+                  <a href="#!" class="text-white">Fuertacos</a>
+                </li>
+                <li>
+                  <a href="#!" class="text-white">COVID 19</a>
+                </li>
+              </ul>
+            </div>
+    
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+              <h5 class="text-uppercase">Apartados Web</h5>
+    
+              <ul class="list-unstyled mb-0">
+                <li>
+                  <a href="#!" class="text-white">Noticias</a>
+                </li>
+                <li>
+                  <a href="#!" class="text-white">Libro de visitas</a>
+                </li>
+                <li>
+                  <a href="#!" class="text-white">Contacto</a>
+                </li>
+                <li>
+                  <a href="#!" class="text-white">Merchandising</a>
+                </li>
+              </ul>
+            </div>
+    
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+              <h5 class="text-uppercase">Síguenos en</h5>
+    
+              <ul class="list-unstyled mb-0">
+                <li>
+                  <a href="#!" class="text-white">Instagram</a>
+                </li>
+                <li>
+                  <a href="#!" class="text-white">Facebook</a>
+                </li>
+                <li>
+                  <a href="#!" class="text-white">Twitter</a>
+                </li>
+                <li>
+                  <a href="#!" class="text-white">Linkedin</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </div>
+    
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2021 Copyright:
+        <a class="text-white">TempleGYM.com</a>
+      </div>
+    </footer>
+	
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="JS/funciones.js"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+</body>
+</html>

@@ -1,6 +1,7 @@
 package com.model;
 
 import java.util.Collection;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;					
@@ -40,12 +41,22 @@ public class Diet {
 	
 	@Column(name = "allergens")
 	private String allergens;
+
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinTable(
+			name = "trainingplan_diet",					
+			joinColumns = @JoinColumn(
+					name = "diet_id", referencedColumnName = "id"),
+			inverseJoinColumns = @JoinColumn(					
+							name = "trainingplan_id", referencedColumnName = "id"))	
+	private Set<TrainingPlan> trainingplans;
 	
 	public Diet() {
 		
 	}
 
-	public Diet(String name, String description, int fats, int carbohydrates, int proteins, String allergens) {
+	public Diet(String name, String description, int fats, int carbohydrates, int proteins, String allergens,
+			Set<TrainingPlan> trainingplans) {
 		super();
 		this.name = name;
 		this.description = description;
@@ -53,16 +64,9 @@ public class Diet {
 		this.carbohydrates = carbohydrates;
 		this.proteins = proteins;
 		this.allergens = allergens;
+		this.trainingplans = trainingplans;
 	}
 
-	/* @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinTable(
-			name = "users_roles",					
-			joinColumns = @JoinColumn(
-					name = "user_id", referencedColumnName = "id"),
-			inverseJoinColumns = @JoinColumn(					
-							name = "role_id", referencedColumnName = "id")) */
-	
 	public Long getId() {
 		return id;
 	}
@@ -118,5 +122,12 @@ public class Diet {
 	public void setAllergens(String allergens) {
 		this.allergens = allergens;
 	}
-	
+
+	public Set<TrainingPlan> getTrainingplans() {
+		return trainingplans;
+	}
+
+	public void setTrainingplans(Set<TrainingPlan> trainingplans) {
+		this.trainingplans = trainingplans;
+	}
 }

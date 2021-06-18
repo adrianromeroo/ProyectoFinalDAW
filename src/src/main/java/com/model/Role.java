@@ -1,5 +1,7 @@
 package com.model;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -38,5 +40,5 @@ public class Role {
 	
 	public void setName(String name) {
 		this.name = name;
-	}	
+	}
 }

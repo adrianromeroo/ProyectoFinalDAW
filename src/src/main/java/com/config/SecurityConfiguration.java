@@ -40,6 +40,24 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 					"/js/**",
 					"/css/**",
 					"/img/**").permitAll()
+		.antMatchers("/list").hasAnyAuthority("admin")
+		.antMatchers("/delete").hasAnyAuthority("admin")
+		.antMatchers("/save").hasAnyAuthority("admin")
+		.antMatchers("/edit").hasAnyAuthority("admin")
+		.antMatchers("/list-trainingplan").hasAnyAuthority("admin","cliente","dietista","entrenador")
+		.antMatchers("/new-trainingplan").hasAnyAuthority("admin")
+		.antMatchers("/save-trainingplan").hasAnyAuthority("admin")
+		.antMatchers("/delete-trainingplan/?").hasAnyAuthority("admin")
+		.antMatchers("/list-routines").hasAnyAuthority("admin","entrenador")
+		.antMatchers("/new-routine").hasAnyAuthority("admin","entrenador")
+		.antMatchers("/save-routine").hasAnyAuthority("admin","entrenador")
+		.antMatchers("/delete-routine").hasAnyAuthority("admin","entrenador")
+		.antMatchers("/edit-routine").hasAnyAuthority("admin","entrenador")
+		.antMatchers("/list-diets").hasAnyAuthority("admin","dietista")
+		.antMatchers("/new-diet").hasAnyAuthority("admin","dietista")
+		.antMatchers("/save-diet").hasAnyAuthority("admin","dietista")
+		.antMatchers("/delete-diet").hasAnyAuthority("admin","dietista")
+		.antMatchers("/edit-diet").hasAnyAuthority("admin","dietista")
 		.anyRequest().authenticated()
 		.and()
 		.formLogin()
@@ -53,5 +71,4 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 		.logoutSuccessUrl("/login?logout")
 		.permitAll();
 	}
-
 }

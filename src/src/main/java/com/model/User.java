@@ -45,10 +45,13 @@ public class User {
 	
 	private Collection<Role> roles;
 	
+	@ManyToMany(mappedBy = "users", cascade = CascadeType.PERSIST)
+	private Collection<TrainingPlan> trainingplans;
+	
 	public User() {
 		
 	}
-	
+
 	public User(String name, String lastname, String username, String password, int age, Collection<Role> roles) {
 		super();
 		this.name = name;
@@ -75,12 +78,12 @@ public class User {
 		this.name = name;
 	}
 
-	public String getlastName() {
+	public String getLastname() {
 		return lastname;
 	}
 
-	public void setlastName(String apellido) {
-		this.lastname = apellido;
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
 	}
 
 	public String getUsername() {
@@ -103,8 +106,8 @@ public class User {
 		return age;
 	}
 
-	public void setAge(int edad) {
-		this.age = edad;
+	public void setAge(int age) {
+		this.age = age;
 	}
 
 	public Collection<Role> getRoles() {
